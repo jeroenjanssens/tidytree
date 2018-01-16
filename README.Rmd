@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# tidytree
+
+The goal of tidytree is to provide an understandable (but slow) implementation of a Decision Tree classifier.
+
+## Installation
+
+You can install tidytree from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("datascienceworkshops/tidytree")
+```
+
+## Example
+
+### Building a model
+
+```{r example}
+library(tidytree)
+model <- tidytree(Species ~ ., iris)
+model
+```
+
+### Plotting a model
+
+```{r}
+plot(model)
+```
+
+
+### Classifying new data points
+
+```{r}
+predict(model, iris[c(1, 51, 101), ])
+```
